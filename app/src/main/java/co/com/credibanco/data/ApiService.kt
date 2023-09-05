@@ -1,24 +1,29 @@
 package co.com.credibanco.data
 
+import co.com.credibanco.data.source.remote.request_body.AnnulmentRequestBody
+import co.com.credibanco.data.source.remote.request_body.AuthorizationRequestBody
+import co.com.credibanco.data.source.remote.response.AnnulmentResponse
+import co.com.credibanco.data.source.remote.response.AuthorizationResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
 
 
-object ApiUrl {
+interface ApiService {
+
+    companion object {
+
         const val REST_BASE_URL = "http://localhost:8080/api/payments"
-        const val AUTHORIZATION = "/authorization"
-        const val ANNULMENT = "/annulment"
+        private const val PARTICLE_AUTHORIZATION = "/authorization"
+        private const val PARTICLE_ANNULMENT = "/annulment"
     }
 
-class ApiService {
+    @POST(PARTICLE_AUTHORIZATION)
+    suspend fun requestAuthorization(
+        @Body authorizationRequestBody: AuthorizationRequestBody
+    ): AuthorizationResponse
 
-    @POST(ApiUrl.AUTHORIZATION)
-    suspend fun fetchAutorization(@Body autorizationRequest: AuthorizationRequest) {
-    }
-
-    @POST(ApiUrl.ANNULMENT)
-    suspend fun fetchAnnulment(@Body annulmentRequest: AnnulmentRequest){
-
-    }
-
+    @POST(PARTICLE_ANNULMENT)
+    suspend fun requestAnnulment(
+        @Body annulmentRequestBody: AnnulmentRequestBody
+    ): AnnulmentResponse
 }

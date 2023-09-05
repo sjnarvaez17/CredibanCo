@@ -1,7 +1,6 @@
 package co.com.credibanco.di
 
 import co.com.credibanco.data.ApiService
-import co.com.credibanco.data.ApiUrl
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
@@ -16,7 +15,7 @@ object NetworkModule {
         apiService?.let { return it }
 
         val retrofit = Retrofit.Builder()
-            .baseUrl(ApiUrl.REST_BASE_URL)
+            .baseUrl(ApiService.REST_BASE_URL)
             .client(createOkHttpClient())
             .addConverterFactory(createConverterFactory())
             .build()

@@ -4,8 +4,9 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class AnnulmentResponse (
-val statusCode:String?,
-val statusDescription:String?
-): Parcelable
+data class AnnulmentResponse(
+    val statusCode: String?,
+    val statusDescription: String?
+) : Parcelable
+
 
