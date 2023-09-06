@@ -20,8 +20,6 @@ object Versions {
     const val activityKtxVersion = "1.6.1"
     const val fragmentKtxVersion = "1.5.5"
     const val splashVersion = "1.0.0"
-    const val hiltVersion = "2.44"
-    const val hiltCompilerVersion = "1.0.0"
     const val retrofitVersion = "2.9.0"
     const val loggingInterceptorVersion = "4.10.0"
     const val roomVersion = "2.5.0"
@@ -68,9 +66,6 @@ object Dependencies {
     const val splash = "androidx.core:core-splashscreen:${Versions.splashVersion}"
 
     // Hilt
-    const val hilt = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
-    const val hiltAndroidCompiler = "com.google.dagger:hilt-android-compiler:${Versions.hiltVersion}"
-    const val hiltCompiler = "androidx.hilt:hilt-compiler:${Versions.hiltCompilerVersion}"
 
     // Retrofit
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
