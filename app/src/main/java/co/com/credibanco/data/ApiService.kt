@@ -2,11 +2,10 @@ package co.com.credibanco.data
 
 import co.com.credibanco.data.source.remote.request_body.AnnulmentRequestBody
 import co.com.credibanco.data.source.remote.request_body.AuthorizationRequestBody
-import co.com.credibanco.data.source.remote.response.AnnulmentResponse
-import co.com.credibanco.data.source.remote.response.AuthorizationResponse
+import co.com.credibanco.data.source.remote.response.AnnulmentRemoteResponse
+import co.com.credibanco.data.source.remote.response.AuthorizationRemoteResponse
 import retrofit2.http.Body
 import retrofit2.http.POST
-
 
 interface ApiService {
 
@@ -20,10 +19,10 @@ interface ApiService {
     @POST(PARTICLE_AUTHORIZATION)
     suspend fun requestAuthorization(
         @Body authorizationRequestBody: AuthorizationRequestBody
-    ): AuthorizationResponse
+    ): AuthorizationRemoteResponse
 
     @POST(PARTICLE_ANNULMENT)
     suspend fun requestAnnulment(
         @Body annulmentRequestBody: AnnulmentRequestBody
-    ): AnnulmentResponse
+    ): AnnulmentRemoteResponse
 }

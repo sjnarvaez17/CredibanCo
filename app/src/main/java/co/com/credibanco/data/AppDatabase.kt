@@ -14,7 +14,8 @@ import co.com.credibanco.data.source.local.entities.AuthorizationEntity
 abstract class AppDatabase : RoomDatabase() {
 
     companion object {
-        const val DATABASE_NAME = "product-searcher-local"
+
+        const val DATABASE_NAME = "credibanco-local"
     }
 
     abstract fun authorizationDao(): AuthorizationDao

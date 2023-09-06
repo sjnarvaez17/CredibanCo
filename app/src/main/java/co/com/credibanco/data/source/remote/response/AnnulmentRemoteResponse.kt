@@ -5,12 +5,12 @@ import co.com.credibanco.domain.model.Annulment
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class AnnulmentResponse(
+data class AnnulmentRemoteResponse(
     val statusCode: String?,
     val statusDescription: String?
 ) : Parcelable
 
-fun AnnulmentResponse.toAnnulment() = if (
+fun AnnulmentRemoteResponse.toAnnulment() = if (
     statusCode.isNullOrBlank() ||
     statusDescription.isNullOrBlank()
 ) {
@@ -18,6 +18,3 @@ fun AnnulmentResponse.toAnnulment() = if (
 } else {
     Annulment(statusCode, statusDescription)
 }
-
-
-

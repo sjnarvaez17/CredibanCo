@@ -5,14 +5,14 @@ import co.com.credibanco.domain.model.Authorization
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class AuthorizationResponse(
+data class AuthorizationRemoteResponse(
     val receiptId: String?,
     val rrn: String?,
     val statusCode: String?,
     val statusDescription: String?
 ) : Parcelable
 
-fun AuthorizationResponse.toAuthorization() = if (
+fun AuthorizationRemoteResponse.toAuthorization() = if (
     receiptId.isNullOrBlank() ||
     rrn.isNullOrBlank() ||
     statusCode.isNullOrBlank() ||
