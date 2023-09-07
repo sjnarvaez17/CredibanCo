@@ -4,11 +4,15 @@ import co.com.credibanco.domain.model.Authorization
 
 interface AuthorizationRepository {
 
-    suspend fun fetchAuthorization(
+    suspend fun requestAuthorization(
         id: String,
         commerceCode: String,
         terminalCode: String,
         amount: String,
         card: String
-    ): Authorization
+    ): Authorization?
+
+    suspend fun getAuthorizedTransactionWithReceiptId(receiptId: String): Authorization?
+
+    suspend fun getAllAuthorizedTransactions(): List<Authorization>
 }

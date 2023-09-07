@@ -5,7 +5,7 @@ import co.com.credibanco.data.source.remote.response.AuthorizationRemoteResponse
 
 interface RemoteDataSource {
 
-    suspend fun fetchAuthorization(
+    suspend fun requestAuthorization(
         id: String,
         commerceCode: String,
         terminalCode: String,

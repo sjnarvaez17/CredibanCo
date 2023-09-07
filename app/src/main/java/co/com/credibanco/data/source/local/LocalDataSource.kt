@@ -6,5 +6,7 @@ interface LocalDataSource {
 
     suspend fun saveAuthorization(vararg authorizationEntity: AuthorizationEntity)
 
-    suspend fun fetchAuthorizationList(): List<AuthorizationEntity>
+    suspend fun fetchAuthorizationWithReceiptId(receiptId: String): List<AuthorizationEntity>
+
+    suspend fun getAllAuthorizedTransactions(): List<AuthorizationEntity>
 }

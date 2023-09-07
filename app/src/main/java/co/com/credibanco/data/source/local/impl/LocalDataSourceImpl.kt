@@ -11,6 +11,9 @@ class LocalDataSourceImpl @Inject constructor(private val appDatabase: AppDataba
     override suspend fun saveAuthorization(vararg authorizationEntity: AuthorizationEntity) =
         appDatabase.authorizationDao().insertAuthorization(*authorizationEntity)
 
-    override suspend fun fetchAuthorizationList(): List<AuthorizationEntity> =
+    override suspend fun fetchAuthorizationWithReceiptId(receiptId: String): List<AuthorizationEntity> =
+        appDatabase.authorizationDao().getAuthorizationWithReceiptId(receiptId)
+
+    override suspend fun getAllAuthorizedTransactions(): List<AuthorizationEntity> =
         appDatabase.authorizationDao().getAllAuthorizations()
 }
