@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 class RemoteDataSourceImpl @Inject constructor() : RemoteDataSource {
 
-    override suspend fun fetchAuthorization(
+    override suspend fun requestAuthorization(
         id: String,
         commerceCode: String,
         terminalCode: String,
