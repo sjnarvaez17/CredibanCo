@@ -6,4 +6,71 @@
     android:layout_height="match_parent"
     tools:context=".presentation.login.LoginActivity">
 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/credibanco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/labelCommerceCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="60dp"
+        android:text="@string/text_commerce_code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <EditText
+        android:id="@+id/commerceCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="50dp"
+        android:inputType="text"
+        android:maxLength="6"
+        app:layout_constraintBottom_toBottomOf="@+id/labelCommerceCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelCommerceCode"
+        app:layout_constraintTop_toTopOf="@+id/labelCommerceCode" />
+
+    <TextView
+        android:id="@+id/labelTerminalCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="@string/text_terminal_code"
+        app:layout_constraintEnd_toEndOf="@+id/labelCommerceCode"
+        app:layout_constraintStart_toStartOf="@+id/labelCommerceCode"
+        app:layout_constraintTop_toBottomOf="@+id/labelCommerceCode" />
+
+    <EditText
+        android:id="@+id/terminalCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:maxLength="6"
+        app:layout_constraintBottom_toBottomOf="@+id/labelTerminalCode"
+        app:layout_constraintEnd_toEndOf="@+id/commerceCode"
+        app:layout_constraintStart_toStartOf="@+id/commerceCode"
+        app:layout_constraintTop_toTopOf="@+id/labelTerminalCode" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/text_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
