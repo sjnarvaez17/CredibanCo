@@ -16,4 +16,5 @@
     <string name="text_request_authorization">Request Authorization</string>
     <string name="text_no_results_found">No results found</string>
     <string name="text_search_by_receipt_id">Search by receipt id:</string>
+    <string name="text_receipt_id">Receipt Id:</string>
 </resources>
