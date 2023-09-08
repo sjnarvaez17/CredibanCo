@@ -8,7 +8,9 @@ import co.com.credibanco.data.source.remote.response.toAuthorization
 import co.com.credibanco.domain.model.Authorization
 import co.com.credibanco.domain.repository.AuthorizationRepository
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class AuthorizationRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource

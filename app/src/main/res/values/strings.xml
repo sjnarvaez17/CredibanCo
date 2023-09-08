@@ -3,4 +3,6 @@
     <string name="text_commerce_code">Commerce code:</string>
     <string name="text_terminal_code">Terminal Code:</string>
     <string name="text_login">Login</string>
+    <string name="text_error">Error</string>
+    <string name="text_ok">OK</string>
 </resources>

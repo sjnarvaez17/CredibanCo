@@ -8,9 +8,10 @@ import co.com.credibanco.domain.use_case.Result
 import co.com.credibanco.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
+import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel(
+class LoginViewModel @Inject constructor(
     private val loginUseCase: LoginUseCase,
     @DefaultDispatcher dispatcher: CoroutineDispatcher
 ) : BaseViewModel<LoginViewState, LoginViewEvent>(dispatcher) {

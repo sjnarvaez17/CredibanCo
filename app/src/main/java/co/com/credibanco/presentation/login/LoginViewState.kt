@@ -15,12 +15,12 @@ sealed class LoginViewState : ViewState {
         override fun getName() = "LoginViewState.Loading"
     }
 
-    class Content(credentials: Credentials) : LoginViewState() {
+    class Content(val credentials: Credentials) : LoginViewState() {
 
         override fun getName() = "LoginViewState.Content"
     }
 
-    class Error(message: String) : LoginViewState() {
+    class Error(val message: String) : LoginViewState() {
 
         override fun getName() = "LoginViewState.Error"
     }

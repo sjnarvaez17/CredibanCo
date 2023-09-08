@@ -6,7 +6,9 @@ import co.com.credibanco.data.source.local.entities.toCredentials
 import co.com.credibanco.domain.model.Credentials
 import co.com.credibanco.domain.repository.CredentialsRepository
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class CredentialsRepositoryImpl @Inject constructor(
     private val localDataSource: LocalDataSource
 ) : CredentialsRepository {

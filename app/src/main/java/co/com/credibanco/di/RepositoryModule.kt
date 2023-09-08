@@ -17,14 +17,11 @@ import javax.inject.Singleton
 abstract class RepositoryModule {
 
     @Binds
-    @Singleton
     abstract fun bindCredentialsRepository(credentialsRepositoryImpl: CredentialsRepositoryImpl): CredentialsRepository
 
     @Binds
-    @Singleton
     abstract fun bindAuthorizationRepository(authorizationRepositoryImpl: AuthorizationRepositoryImpl): AuthorizationRepository
 
     @Binds
-    @Singleton
     abstract fun bindAnnulmentRepository(annulmentRepositoryImpl: AnnulmentRepositoryImpl): AnnulmentRepository
 }
