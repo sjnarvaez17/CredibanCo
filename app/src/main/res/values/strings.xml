@@ -5,4 +5,7 @@
     <string name="text_login">Login</string>
     <string name="text_error">Error</string>
     <string name="text_ok">OK</string>
+    <string name="text_label_main_menu">Please select an option:</string>
+    <string name="text_authorize_transaction">Authorize Transaction</string>
+    <string name="text_see_authorized_transactions">See Authorized Transactions</string>
 </resources>

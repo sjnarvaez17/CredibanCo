@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+
         android:name=".AndroidApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -19,7 +20,9 @@
 
         <activity
             android:name=".presentation.splash.SplashActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.App.Starting">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,11 +33,27 @@
 
         <activity
             android:name=".presentation.login.LoginActivity"
-            android:exported="false" />
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".presentation.main_menu.MainMenuActivity"
-            android:exported="false" />
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".presentation.authorization.request.AuthorizationRequestActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".presentation.authorization.list.AuthorizationListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="false"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
