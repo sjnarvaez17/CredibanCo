@@ -38,7 +38,7 @@ class AuthorizationRequestActivity :
             is AuthorizationRequestViewState.InitializeForm -> buildInitializeFormState(state)
             AuthorizationRequestViewState.Loading -> buildLoadingState()
             is AuthorizationRequestViewState.Content -> buildContentState(state)
-            is AuthorizationRequestViewState.Error -> TODO()
+            is AuthorizationRequestViewState.Error -> buildErrorState(state)
         }
     }
 

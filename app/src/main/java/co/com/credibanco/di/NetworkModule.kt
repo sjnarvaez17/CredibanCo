@@ -3,6 +3,7 @@ package co.com.credibanco.di
 import co.com.credibanco.data.ApiService
 import co.com.credibanco.domain.model.Credentials
 import okhttp3.Authenticator
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
@@ -43,9 +44,22 @@ object NetworkModule {
         return OkHttpClient.Builder()
             .cache(null)
             .addInterceptor(loggingInterceptor)
+            .addInterceptor {chain ->
+                val request = setUpRequestInterceptor(chain)
+                chain.proceed(request)
+            }
             .authenticator(authenticator)
             .build()
     }
+
+    private fun setUpRequestInterceptor(chain: Interceptor.Chain) = chain
+        .request()
+        .newBuilder()
+        .addHeader(
+            name = HEADER_NAME,
+            value = HEADER_VALUE.format(credentials?.token)
+        )
+        .build()
 
     private fun createConverterFactory(): Converter.Factory = GsonConverterFactory.create()
 
@@ -60,7 +74,8 @@ object NetworkModule {
                 .header(
                     name = HEADER_NAME,
                     value = HEADER_VALUE.format(token)
-                ).build()
+                )
+                .build()
         }
     }
 }
