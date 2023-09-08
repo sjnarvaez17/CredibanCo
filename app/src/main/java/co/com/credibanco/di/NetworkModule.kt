@@ -1,8 +1,12 @@
 package co.com.credibanco.di
 
 import co.com.credibanco.data.ApiService
-import okhttp3.Interceptor
+import co.com.credibanco.domain.model.Credentials
+import okhttp3.Authenticator
 import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
+import okhttp3.Route
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Converter
 import retrofit2.Retrofit
@@ -14,39 +18,49 @@ object NetworkModule {
     private const val HEADER_VALUE = "Basic %s"
 
     private var apiService: ApiService? = null
+    var credentials: Credentials? = null
 
     fun getApiService(): ApiService {
         apiService?.let { return it }
 
         val retrofit = Retrofit.Builder()
             .baseUrl(ApiService.REST_BASE_URL)
-            .client(createOkHttpClient())
+            .client(createOkHttpClient(credentials))
             .addConverterFactory(createConverterFactory())
             .build()
 
         return retrofit.create(ApiService::class.java).also { apiService = it }
     }
 
-    private fun createOkHttpClient(): OkHttpClient {
+    private fun createOkHttpClient(credentials: Credentials?): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor()
             .setLevel(
                 HttpLoggingInterceptor.Level.BODY
             )
 
+        val authenticator = CustomAuthenticator(credentials)
+
         return OkHttpClient.Builder()
             .cache(null)
             .addInterceptor(loggingInterceptor)
-            .addInterceptor { chain: Interceptor.Chain ->
-                val request = chain.request()
-
-                val newRequest = request.newBuilder()
-                    .addHeader(HEADER_NAME, HEADER_VALUE)
-                    .build()
-
-                chain.proceed(newRequest)
-            }
+            .authenticator(authenticator)
             .build()
     }
 
     private fun createConverterFactory(): Converter.Factory = GsonConverterFactory.create()
+
+    private class CustomAuthenticator(private val credentials: Credentials?) : Authenticator {
+
+        override fun authenticate(route: Route?, response: Response): Request? {
+            val token = credentials?.token ?: return null
+
+            return response
+                .request
+                .newBuilder()
+                .header(
+                    name = HEADER_NAME,
+                    value = HEADER_VALUE.format(token)
+                ).build()
+        }
+    }
 }

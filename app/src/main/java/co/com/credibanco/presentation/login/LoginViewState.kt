@@ -15,7 +15,7 @@ sealed class LoginViewState : ViewState {
         override fun getName() = "LoginViewState.Loading"
     }
 
-    class Content(val credentials: Credentials) : LoginViewState() {
+    data object Content : LoginViewState() {
 
         override fun getName() = "LoginViewState.Content"
     }

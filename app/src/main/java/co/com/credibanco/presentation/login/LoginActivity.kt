@@ -36,7 +36,7 @@ class LoginActivity : BaseActivity<LoginViewModel, LoginViewState, LoginViewEven
         when (state) {
             LoginViewState.Initial -> buildInitialState()
             LoginViewState.Loading -> buildLoadingState()
-            is LoginViewState.Content -> buildContentState(state)
+            LoginViewState.Content -> buildContentState()
             is LoginViewState.Error -> buildErrorState(state)
         }
     }
@@ -54,7 +54,7 @@ class LoginActivity : BaseActivity<LoginViewModel, LoginViewState, LoginViewEven
         showProgress()
     }
 
-    private fun buildContentState(state: LoginViewState.Content) {
+    private fun buildContentState() {
         showProgress(false)
 
         startActivity(MainMenuActivity.getIntent(this))
