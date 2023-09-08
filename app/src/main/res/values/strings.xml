@@ -9,8 +9,11 @@
     <string name="text_authorize_transaction">Authorize Transaction</string>
     <string name="text_see_authorized_transactions">See Authorized Transactions</string>
     <string name="text_authorize_transaction_title">Authorize Transaction</string>
+    <string name="text_authorized_transactions_title">Authorized Transactions</string>
     <string name="text_amount">Amount:</string>
     <string name="text_card">Card:</string>
     <string name="text_id">Id:</string>
     <string name="text_request_authorization">Request Authorization</string>
+    <string name="text_no_results_found">No results found</string>
+    <string name="text_search_by_receipt_id">Search by receipt id:</string>
 </resources>
