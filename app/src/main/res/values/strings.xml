@@ -8,4 +8,6 @@
     <string name="text_label_main_menu">Please select an option:</string>
     <string name="text_authorize_transaction">Authorize Transaction</string>
     <string name="text_see_authorized_transactions">See Authorized Transactions</string>
+    <string name="text_id">Id:</string>
+    <string name="text_authorize_transaction_title">Authorize Transaction</string>
 </resources>
