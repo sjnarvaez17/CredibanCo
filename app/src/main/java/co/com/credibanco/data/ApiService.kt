@@ -11,9 +11,9 @@ interface ApiService {
 
     companion object {
 
-        const val REST_BASE_URL = "http://localhost:8080/api/payments"
-        private const val PARTICLE_AUTHORIZATION = "/authorization"
-        private const val PARTICLE_ANNULMENT = "/annulment"
+        const val REST_BASE_URL = "http://localhost:8080"
+        private const val PARTICLE_AUTHORIZATION = "/api/payments/authorization"
+        private const val PARTICLE_ANNULMENT = "/api/payments/annulment"
     }
 
     @POST(PARTICLE_AUTHORIZATION)

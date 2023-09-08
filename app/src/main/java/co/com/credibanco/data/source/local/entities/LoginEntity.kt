@@ -2,6 +2,7 @@ package co.com.credibanco.data.source.local.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import co.com.credibanco.domain.model.Credentials
 import java.util.Base64
 
 const val LOGIN_TABLE_NAME = "login"
@@ -21,3 +22,5 @@ data class LoginEntity(
             "$commerceCode$terminalCode".toByteArray()
         )
 )
+
+fun LoginEntity.toCredentials() = Credentials(commerceCode, terminalCode, token)
