@@ -58,6 +58,7 @@ class LoginActivity : BaseActivity<LoginViewModel, LoginViewState, LoginViewEven
         showProgress(false)
 
         startActivity(MainMenuActivity.getIntent(this))
+        finish()
     }
 
     private fun buildErrorState(state: LoginViewState.Error) {
