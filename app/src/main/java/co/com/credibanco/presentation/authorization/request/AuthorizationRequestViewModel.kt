@@ -54,14 +54,35 @@ class AuthorizationRequestViewModel @Inject constructor(
     private suspend fun processAuthorizationRequestClicked(
         event: AuthorizationRequestViewEvent.AuthorizationRequestClicked
     ) {
+        val id = event.id
+        val commerceCode = event.commerceCode
+        val terminalCode = event.terminalCode
+        val amount = event.amount
+        val card = event.card
+
+        if (
+            id.isBlank() ||
+            commerceCode.isBlank() ||
+            terminalCode.isBlank() ||
+            amount.isBlank() ||
+            card.isBlank()
+        ) {
+            setState(
+                AuthorizationRequestViewState.Error(
+                    "All fields are required. Fill empty fields and try again."
+                )
+            )
+            return
+        }
+
         when (
             val result = requestAuthorizationUseCase(
                 RequestAuthorizationUseCaseParams(
-                    event.id,
-                    event.commerceCode,
-                    event.terminalCode,
-                    event.amount,
-                    event.card
+                    id,
+                    commerceCode,
+                    terminalCode,
+                    amount,
+                    card
                 )
             )
         ) {

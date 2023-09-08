@@ -23,7 +23,7 @@ sealed class AuthorizationRequestViewState : ViewState {
         override fun getName() = "AuthorizationRequestViewState.Loading"
     }
 
-    class Content(authorization: Authorization) : AuthorizationRequestViewState() {
+    class Content(val authorization: Authorization) : AuthorizationRequestViewState() {
 
         override fun getName() = "AuthorizationRequestViewState.Content"
     }
