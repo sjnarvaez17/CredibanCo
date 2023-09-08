@@ -56,6 +56,8 @@ class AuthorizationRequestViewModel @Inject constructor(
     private suspend fun processAuthorizationRequestClicked(
         event: AuthorizationRequestViewEvent.AuthorizationRequestClicked
     ) {
+        setState(AuthorizationRequestViewState.Loading)
+
         val id = event.id
         val commerceCode = event.commerceCode
         val terminalCode = event.terminalCode
@@ -125,8 +127,6 @@ class AuthorizationRequestViewModel @Inject constructor(
                         messageBuilder.toString()
                     )
                 )
-
-
             }
         }
     }
