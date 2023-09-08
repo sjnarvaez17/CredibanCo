@@ -1,6 +1,5 @@
 package co.com.credibanco.presentation.login
 
-import co.com.credibanco.domain.model.Credentials
 import co.com.credibanco.presentation.ViewState
 
 sealed class LoginViewState : ViewState {

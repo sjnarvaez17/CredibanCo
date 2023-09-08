@@ -4,22 +4,23 @@ import co.com.credibanco.presentation.ViewState
 
 sealed class AuthorizationRequestViewState : ViewState {
 
-    class Initialize(
-        val commerceCode: String,
-        val terminalCode: String
-    ) : AuthorizationRequestViewState() {
+    data object Initial : AuthorizationRequestViewState() {
 
-        override fun getName() = "AuthorizationRequestViewState.Initialize"
+        override fun getName() = "AuthorizationRequestViewState.Initial"
     }
 
-    class AuthorizationRequestClicked(
-        val id: String,
-        val commerceCode: String,
-        val terminalCode: String,
-        val amount: String,
-        val card: String
-    ) : AuthorizationRequestViewState() {
+    data object Loading : AuthorizationRequestViewState() {
 
-        override fun getName() = "AuthorizationRequestViewState.AuthorizationRequestClicked"
+        override fun getName() = "AuthorizationRequestViewState.Loading"
+    }
+
+    data object Content : AuthorizationRequestViewState() {
+
+        override fun getName() = "AuthorizationRequestViewState.Content"
+    }
+
+    class Error(val message: String) : AuthorizationRequestViewState() {
+
+        override fun getName() = "AuthorizationRequestViewState.Error"
     }
 }
