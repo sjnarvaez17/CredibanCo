@@ -4,10 +4,7 @@ import co.com.credibanco.presentation.ViewEvent
 
 sealed class AuthorizationRequestViewEvent : ViewEvent {
 
-    class Initialize(
-        val commerceCode: String,
-        val terminalCode: String
-    ) : AuthorizationRequestViewEvent() {
+    data object Initialize : AuthorizationRequestViewEvent() {
 
         override fun getName() = "AuthorizationRequestViewEvent.Initialize"
     }

@@ -34,5 +34,5 @@ data class RequestAuthorizationUseCaseParams(
 )
 
 data class RequestAuthorizationUseCaseResult(
-    val authorizations: Authorization?
+    val authorization: Authorization?
 )
