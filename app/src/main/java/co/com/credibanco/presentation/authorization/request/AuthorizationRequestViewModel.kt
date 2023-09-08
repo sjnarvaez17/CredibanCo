@@ -9,6 +9,8 @@ import co.com.credibanco.domain.use_case.Result
 import co.com.credibanco.presentation.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
+import retrofit2.HttpException
+import java.lang.StringBuilder
 import javax.inject.Inject
 
 @HiltViewModel
@@ -102,11 +104,29 @@ class AuthorizationRequestViewModel @Inject constructor(
             }
 
             is Result.Error -> {
+                val exception = result.exception
+
+                val messageBuilder = StringBuilder()
+                    .append(exception.message.orEmpty())
+
+                if (exception is HttpException) {
+                    val response = exception
+                        .response()
+                        ?.errorBody()
+                        ?.string()
+                        .orEmpty()
+
+                    messageBuilder.append("\n\n")
+                    messageBuilder.append(response)
+                }
+
                 setState(
                     AuthorizationRequestViewState.Error(
-                        result.exception.message.orEmpty()
+                        messageBuilder.toString()
                     )
                 )
+
+
             }
         }
     }
