@@ -18,7 +18,7 @@ class AuthorizationRepositoryImpl @Inject constructor(
 
     companion object {
 
-        private const val STATUS_APPROVE = "aprobada"
+        private const val STATUS_APPROVE = "Aprobada"
     }
 
     override suspend fun requestAuthorization(
@@ -52,7 +52,8 @@ class AuthorizationRepositoryImpl @Inject constructor(
     }
 
     override suspend fun getAuthorizedTransactionWithReceiptId(receiptId: String): Authorization? {
-        val transactions: List<AuthorizationEntity> = localDataSource.fetchAuthorizationWithReceiptId(receiptId)
+        val transactions: List<AuthorizationEntity> = localDataSource
+            .fetchAuthorizationWithReceiptId(receiptId)
 
         if (transactions.isEmpty()) {
             return null
