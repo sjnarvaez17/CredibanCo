@@ -10,6 +10,7 @@ import co.com.credibanco.data.source.local.entities.RECEIPT_ID_COLUMN_NAME
 
 @Dao
 interface AuthorizationDao {
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAuthorization(vararg authorizationEntity: AuthorizationEntity)
 

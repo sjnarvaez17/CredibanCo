@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkModule {
 
     private const val HEADER_NAME = "Authorization"
-    private const val HEADER_VALUE = "Basic MDAwMTIzMDAwQUJD"
+    private const val HEADER_VALUE = "Basic %s"
 
     private var apiService: ApiService? = null
 
