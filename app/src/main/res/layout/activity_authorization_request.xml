@@ -44,6 +44,7 @@
         android:id="@+id/commerceCode"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:enabled="false"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/labelCommerceCode"
@@ -64,6 +65,7 @@
     <EditText
         android:id="@+id/terminalCode"
         android:layout_width="0dp"
+        android:enabled="false"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/labelTerminalCode"
         app:layout_constraintEnd_toEndOf="@+id/commerceCode"
@@ -126,5 +128,17 @@
         app:layout_constraintEnd_toEndOf="@+id/card"
         app:layout_constraintStart_toStartOf="@+id/card"
         app:layout_constraintTop_toTopOf="@+id/labelId" />
+
+    <Button
+        android:id="@+id/buttonRequestAuthorization"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/text_request_authorization"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
