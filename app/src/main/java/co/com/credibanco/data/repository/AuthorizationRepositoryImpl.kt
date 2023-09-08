@@ -51,15 +51,11 @@ class AuthorizationRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getAuthorizedTransactionWithReceiptId(receiptId: String): Authorization? {
+    override suspend fun getAuthorizedTransactionWithReceiptId(receiptId: String): List<Authorization> {
         val transactions: List<AuthorizationEntity> = localDataSource
             .fetchAuthorizationWithReceiptId(receiptId)
 
-        if (transactions.isEmpty()) {
-            return null
-        }
-
-        return transactions[0].toAuthorization()
+        return transactions.map { it.toAuthorization() }
     }
 
     override suspend fun getAllAuthorizedTransactions() = localDataSource

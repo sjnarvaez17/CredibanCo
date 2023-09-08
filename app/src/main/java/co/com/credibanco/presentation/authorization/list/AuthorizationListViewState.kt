@@ -19,4 +19,9 @@ sealed class AuthorizationListViewState : ViewState {
 
         override fun getName() = "AuthorizationListViewState.Content"
     }
+
+    class NavigateToAuthDetail(val authorization: Authorization) : AuthorizationListViewState() {
+
+        override fun getName() = "AuthorizationListViewState.NavigateToAuthDetail"
+    }
 }

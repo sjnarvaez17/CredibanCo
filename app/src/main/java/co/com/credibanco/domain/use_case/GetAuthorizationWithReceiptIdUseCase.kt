@@ -24,5 +24,5 @@ data class GetAuthorizationWithReceiptIdUseCaseParams(
 )
 
 data class GetAuthorizationWithReceiptIdUseCaseResult(
-    val authorizations: Authorization?
+    val authorizations: List<Authorization>
 )
