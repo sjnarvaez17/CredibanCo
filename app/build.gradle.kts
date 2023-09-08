@@ -59,8 +59,8 @@ dependencies {
     implementation(Dependencies.activityKtx)
     implementation(Dependencies.splash)
 
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
+    implementation(Dependencies.hilt)
+    kapt(Dependencies.hiltCompiler)
 
     implementation(Dependencies.retrofit)
     implementation(Dependencies.retrofitConverterGson)

@@ -11,7 +11,7 @@ object Versions {
     const val coreKtxVersion = "1.9.0"
     const val appCompatVersion = "1.6.1"
     const val materialVersion = "1.9.0"
-    const val constraintLayoutVersion = "2.1.3"
+    const val constraintLayoutVersion = "2.1.4"
     const val jUnitVersion = "4.13.2"
     const val jUnitExtVersion = "1.1.5"
     const val espressoCoreVersion = "3.5.1"
@@ -28,6 +28,7 @@ object Versions {
     const val mockitoKotlinVersion = "4.1.0"
     const val mockkVersion = "1.13.4"
     const val coreTestingVersion = "2.1.0"
+    const val hiltVersion ="2.48"
 }
 
 object Dependencies {
@@ -66,6 +67,8 @@ object Dependencies {
     const val splash = "androidx.core:core-splashscreen:${Versions.splashVersion}"
 
     // Hilt
+    const val hilt = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
+    const val hiltCompiler = "\"com.google.dagger:hilt-compiler:${Versions.hiltVersion}"
 
     // Retrofit
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
