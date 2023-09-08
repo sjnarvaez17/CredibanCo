@@ -68,7 +68,7 @@ object Dependencies {
 
     // Hilt
     const val hilt = "com.google.dagger:hilt-android:${Versions.hiltVersion}"
-    const val hiltCompiler = "\"com.google.dagger:hilt-compiler:${Versions.hiltVersion}"
+    const val hiltCompiler = "com.google.dagger:hilt-compiler:${Versions.hiltVersion}"
 
     // Retrofit
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofitVersion}"
