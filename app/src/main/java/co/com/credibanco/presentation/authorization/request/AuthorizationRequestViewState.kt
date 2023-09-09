@@ -15,7 +15,7 @@ sealed class AuthorizationRequestViewState : ViewState {
         val terminalCode: String
     ) : AuthorizationRequestViewState() {
 
-        override fun getName() = "InitializeForm.Initial"
+        override fun getName() = "AuthorizationRequestViewState.InitializeForm"
     }
 
     data object Loading : AuthorizationRequestViewState() {
