@@ -20,6 +20,6 @@
     <string name="text_title_authorization_details">Authorization Details</string>
     <string name="text_rrn">RRN:</string>
     <string name="text_status_code">Status Code:</string>
-    <string name="text_status_description">Status Description</string>
+    <string name="text_status_description">Status Description:</string>
     <string name="text_request_annulment">Request Annulment</string>
 </resources>

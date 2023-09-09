@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import co.com.credibanco.databinding.ActivityAuthorizationListBinding
 import co.com.credibanco.domain.model.Authorization
 import co.com.credibanco.presentation.BaseActivity
+import co.com.credibanco.presentation.authorization.details.AuthorizationDetailsActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -95,7 +96,7 @@ class AuthorizationListActivity :
     }
 
     override fun onItemClicked(authorization: Authorization) {
-
+        dispatchEvent(AuthorizationListViewEvent.AuthorizationItemClicked(authorization))
     }
 
     private fun initializeEvents() {
@@ -132,5 +133,17 @@ class AuthorizationListActivity :
         }
     }
 
-    private fun navigateToAuthDetail(state: AuthorizationListViewState.NavigateToAuthDetail) {}
+    private fun navigateToAuthDetail(state: AuthorizationListViewState.NavigateToAuthDetail) {
+        val (receiptId, rrn, statusCode, statusDescription) = state.authorization
+
+        startActivity(
+            AuthorizationDetailsActivity.getIntent(
+                receiptId,
+                rrn,
+                statusCode,
+                statusDescription,
+                this
+            )
+        )
+    }
 }
