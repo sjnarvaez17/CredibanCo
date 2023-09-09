@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import co.com.credibanco.R
 import co.com.credibanco.databinding.ActivityAuthorizationDetailsBinding
 import co.com.credibanco.presentation.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -106,9 +108,38 @@ class AuthorizationDetailsActivity :
 
     private fun buildContentState(state: AuthorizationDetailsViewState.Content) {
         showProgress(false)
+
+        val (statusCode, statusDescription) = state.annulment
+
+        showModalDialog(
+            "Response",
+            "Status code: $statusCode\n" +
+                    "Status Description: $statusDescription"
+        ) {
+            finish()
+        }
     }
 
     private fun buildErrorState(state: AuthorizationDetailsViewState.Error) {
         showProgress(false)
+
+        showModalDialog(
+            getString(R.string.text_error),
+            state.message
+        ) {}
+    }
+
+    private fun showModalDialog(title: String, message: String, acceptCallback: () -> Unit) {
+        val dialogBuilder = AlertDialog.Builder(this)
+            .setCancelable(false)
+            .setTitle(title)
+            .setMessage(message)
+            .setPositiveButton(getString(R.string.text_ok)) { dialog, _ ->
+                dialog.dismiss()
+                acceptCallback()
+            }
+            .create()
+
+        dialogBuilder.show()
     }
 }
