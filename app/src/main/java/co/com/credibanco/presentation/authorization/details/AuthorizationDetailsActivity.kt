@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import co.com.credibanco.R
 import co.com.credibanco.databinding.ActivityAuthorizationDetailsBinding
 import co.com.credibanco.presentation.BaseActivity
