@@ -12,7 +12,6 @@ import co.com.credibanco.domain.model.Authorization
 import co.com.credibanco.presentation.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class AuthorizationListActivity :
     BaseActivity<AuthorizationListViewModel, AuthorizationListViewState, AuthorizationListViewEvent>(),
@@ -72,7 +71,6 @@ class AuthorizationListActivity :
     private fun buildLoadingState() {
         showProgress()
     }
-
 
     private fun buildContentState(state: AuthorizationListViewState.Content) {
         showProgress(false)

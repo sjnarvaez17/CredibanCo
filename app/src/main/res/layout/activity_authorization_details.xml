@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.authorization.details.AuthorizationDetailsActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/credibanco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/text_title_authorization_details"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <TextView
+        android:id="@+id/labelReceiptId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/text_receipt_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <TextView
+        android:id="@+id/receiptId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/labelReceiptId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelReceiptId"
+        app:layout_constraintTop_toTopOf="@+id/labelReceiptId"
+        tools:text="d044bb3d-c384-4b27-b826-dafd1c2dd847" />
+
+    <TextView
+        android:id="@+id/labeRrn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_rrn"
+        app:layout_constraintEnd_toEndOf="@+id/labelReceiptId"
+        app:layout_constraintStart_toStartOf="@+id/labelReceiptId"
+        app:layout_constraintTop_toBottomOf="@+id/receiptId" />
+
+    <TextView
+        android:id="@+id/rrn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/labeRrn"
+        app:layout_constraintEnd_toEndOf="@+id/receiptId"
+        app:layout_constraintStart_toStartOf="@+id/receiptId"
+        app:layout_constraintTop_toTopOf="@+id/labeRrn"
+        tools:text="dcdd456b-66c0-4aa9-aa05-a6f5255d508d" />
+
+    <TextView
+        android:id="@+id/labelStatusCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_status_code"
+        app:layout_constraintEnd_toEndOf="@+id/labeRrn"
+        app:layout_constraintStart_toStartOf="@+id/labeRrn"
+        app:layout_constraintTop_toBottomOf="@+id/rrn" />
+
+    <TextView
+        android:id="@+id/statusCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/labelStatusCode"
+        app:layout_constraintEnd_toEndOf="@+id/rrn"
+        app:layout_constraintStart_toStartOf="@+id/rrn"
+        app:layout_constraintTop_toTopOf="@+id/labelStatusCode"
+        tools:text="00" />
+
+    <TextView
+        android:id="@+id/labelStatusDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_status_description"
+        app:layout_constraintEnd_toEndOf="@+id/labelStatusCode"
+        app:layout_constraintStart_toStartOf="@+id/labelStatusCode"
+        app:layout_constraintTop_toBottomOf="@+id/statusCode" />
+
+    <TextView
+        android:id="@+id/statusDescription"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/labelStatusDescription"
+        app:layout_constraintEnd_toEndOf="@+id/statusCode"
+        app:layout_constraintStart_toStartOf="@+id/statusCode"
+        app:layout_constraintTop_toTopOf="@+id/labelStatusDescription"
+        tools:text="Aprobada" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
