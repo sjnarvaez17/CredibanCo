@@ -14,7 +14,7 @@ interface AuthorizationDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertAuthorization(vararg authorizationEntity: AuthorizationEntity)
 
-    @Query("SELECT * FROM $AUTHORIZATION_TABLE_NAME WHERE $RECEIPT_ID_COLUMN_NAME LIKE :receiptId")
+    @Query("SELECT * FROM $AUTHORIZATION_TABLE_NAME WHERE $RECEIPT_ID_COLUMN_NAME LIKE '%' || :receiptId || '%'")
     fun getAuthorizationWithReceiptId(receiptId: String): List<AuthorizationEntity>
 
     @Query("SELECT * FROM $AUTHORIZATION_TABLE_NAME ORDER BY $RECEIPT_ID_COLUMN_NAME")

@@ -3,12 +3,15 @@ package co.com.credibanco.presentation.authorization.list
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import androidx.activity.viewModels
 import co.com.credibanco.databinding.ActivityAuthorizationListBinding
 import co.com.credibanco.domain.model.Authorization
 import co.com.credibanco.presentation.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class AuthorizationListActivity :
@@ -45,6 +48,7 @@ class AuthorizationListActivity :
 
     private fun buildInitialState() {
         initializeAdapter()
+        initializeEvents()
         dispatchEvent(AuthorizationListViewEvent.Initialize)
     }
 
@@ -65,10 +69,10 @@ class AuthorizationListActivity :
         }
     }
 
-
     private fun buildLoadingState() {
         showProgress()
     }
+
 
     private fun buildContentState(state: AuthorizationListViewState.Content) {
         showProgress(false)
@@ -94,6 +98,33 @@ class AuthorizationListActivity :
 
     override fun onItemClicked(authorization: Authorization) {
 
+    }
+
+    private fun initializeEvents() {
+        binding.searchReceiptId.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) = Unit
+
+            override fun beforeTextChanged(
+                s: CharSequence,
+                start: Int,
+                count: Int,
+                after: Int
+            ) = Unit
+
+            override fun onTextChanged(
+                text: CharSequence,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+                if (text.isEmpty()) {
+                    dispatchEvent(AuthorizationListViewEvent.Initialize)
+                } else {
+                    dispatchEvent(AuthorizationListViewEvent.SearchReceiptId(text.toString()))
+                }
+            }
+        })
     }
 
     private fun initializeAdapter() {
