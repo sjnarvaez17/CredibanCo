@@ -23,9 +23,9 @@ class AuthorizationListViewModel @Inject constructor(
     override suspend fun processEvent(event: AuthorizationListViewEvent) {
         when (event) {
             AuthorizationListViewEvent.Initialize -> processInitializeEvent()
-            is AuthorizationListViewEvent.AuthorizationItemClicked -> processAuthorizationItemClicked(
-                event
-            )
+
+            is AuthorizationListViewEvent.AuthorizationItemClicked ->
+                processAuthorizationItemClicked(event)
 
             is AuthorizationListViewEvent.SearchReceiptId -> processSearchByReceiptId(event)
         }
@@ -33,6 +33,7 @@ class AuthorizationListViewModel @Inject constructor(
 
     private suspend fun processInitializeEvent() {
         setState(AuthorizationListViewState.Loading)
+
         when (val result = getAuthListUseCase(NoParams)) {
             is Result.Success -> {
                 setState(AuthorizationListViewState.Content(result.data.authorizations))
