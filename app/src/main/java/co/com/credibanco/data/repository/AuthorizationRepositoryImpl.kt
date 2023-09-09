@@ -8,7 +8,9 @@ import co.com.credibanco.data.source.remote.response.toAuthorization
 import co.com.credibanco.domain.model.Authorization
 import co.com.credibanco.domain.repository.AuthorizationRepository
 import javax.inject.Inject
+import javax.inject.Singleton
 
+@Singleton
 class AuthorizationRepositoryImpl @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
@@ -16,7 +18,7 @@ class AuthorizationRepositoryImpl @Inject constructor(
 
     companion object {
 
-        private const val STATUS_APPROVE = "aprobada"
+        private const val STATUS_APPROVE = "Aprobada"
     }
 
     override suspend fun requestAuthorization(
@@ -49,14 +51,11 @@ class AuthorizationRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun getAuthorizedTransactionWithReceiptId(receiptId: String): Authorization? {
-        val transactions: List<AuthorizationEntity> = localDataSource.fetchAuthorizationWithReceiptId(receiptId)
+    override suspend fun getAuthorizedTransactionWithReceiptId(receiptId: String): List<Authorization> {
+        val transactions: List<AuthorizationEntity> = localDataSource
+            .fetchAuthorizationWithReceiptId(receiptId)
 
-        if (transactions.isEmpty()) {
-            return null
-        }
-
-        return transactions[0].toAuthorization()
+        return transactions.map { it.toAuthorization() }
     }
 
     override suspend fun getAllAuthorizedTransactions() = localDataSource

@@ -12,7 +12,7 @@ interface AuthorizationRepository {
         card: String
     ): Authorization?
 
-    suspend fun getAuthorizedTransactionWithReceiptId(receiptId: String): Authorization?
+    suspend fun getAuthorizedTransactionWithReceiptId(receiptId: String): List<Authorization>
 
     suspend fun getAllAuthorizedTransactions(): List<Authorization>
 }

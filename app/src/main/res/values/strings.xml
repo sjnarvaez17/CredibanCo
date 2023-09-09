@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">CredibanCo</string>
+    <string name="text_commerce_code">Commerce code:</string>
+    <string name="text_terminal_code">Terminal Code:</string>
+    <string name="text_login">Login</string>
+    <string name="text_error">Error</string>
+    <string name="text_ok">OK</string>
+    <string name="text_label_main_menu">Please select an option:</string>
+    <string name="text_authorize_transaction">Authorize Transaction</string>
+    <string name="text_see_authorized_transactions">See Authorized Transactions</string>
+    <string name="text_authorize_transaction_title">Authorize Transaction</string>
+    <string name="text_authorized_transactions_title">Authorized Transactions</string>
+    <string name="text_amount">Amount:</string>
+    <string name="text_card">Card:</string>
+    <string name="text_id">Id:</string>
+    <string name="text_request_authorization">Request Authorization</string>
+    <string name="text_no_results_found">No results found</string>
+    <string name="text_search_by_receipt_id">Search by receipt id:</string>
+    <string name="text_receipt_id">Receipt Id:</string>
+    <string name="text_title_authorization_details">Authorization Details</string>
+    <string name="text_rrn">RRN:</string>
+    <string name="text_status_code">Status Code:</string>
+    <string name="text_status_description">Status Description:</string>
+    <string name="text_request_annulment">Request Annulment</string>
 </resources>

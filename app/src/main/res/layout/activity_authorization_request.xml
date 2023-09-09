@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.authorization.request.AuthorizationRequestActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="@dimen/dimen_200"
+        android:layout_height="@dimen/dimen_200"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/credibanco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/text_authorize_transaction_title"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+    <TextView
+        android:id="@+id/labelCommerceCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/text_commerce_code"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
+
+    <EditText
+        android:id="@+id/commerceCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintBottom_toBottomOf="@+id/labelCommerceCode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/labelCommerceCode"
+        app:layout_constraintTop_toTopOf="@+id/labelCommerceCode" />
+
+    <TextView
+        android:id="@+id/labelTerminalCode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_terminal_code"
+        app:layout_constraintEnd_toEndOf="@+id/labelCommerceCode"
+        app:layout_constraintStart_toStartOf="@+id/labelCommerceCode"
+        app:layout_constraintTop_toBottomOf="@+id/commerceCode" />
+
+    <EditText
+        android:id="@+id/terminalCode"
+        android:layout_width="0dp"
+        android:enabled="false"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/labelTerminalCode"
+        app:layout_constraintEnd_toEndOf="@+id/commerceCode"
+        app:layout_constraintStart_toStartOf="@+id/commerceCode"
+        app:layout_constraintTop_toTopOf="@+id/labelTerminalCode" />
+
+    <TextView
+        android:id="@+id/labelAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_amount"
+        app:layout_constraintEnd_toEndOf="@+id/labelTerminalCode"
+        app:layout_constraintStart_toStartOf="@+id/labelTerminalCode"
+        app:layout_constraintTop_toBottomOf="@+id/terminalCode" />
+
+    <EditText
+        android:id="@+id/amount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/labelAmount"
+        app:layout_constraintEnd_toEndOf="@+id/terminalCode"
+        app:layout_constraintStart_toStartOf="@+id/terminalCode"
+        app:layout_constraintTop_toTopOf="@+id/labelAmount" />
+
+    <TextView
+        android:id="@+id/labelCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_card"
+        app:layout_constraintEnd_toEndOf="@+id/labelAmount"
+        app:layout_constraintStart_toStartOf="@+id/labelAmount"
+        app:layout_constraintTop_toBottomOf="@+id/amount" />
+
+    <EditText
+        android:id="@+id/card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/labelCard"
+        app:layout_constraintEnd_toEndOf="@+id/amount"
+        app:layout_constraintStart_toStartOf="@+id/amount"
+        app:layout_constraintTop_toTopOf="@+id/labelCard" />
+
+    <TextView
+        android:id="@+id/labelId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/text_id"
+        app:layout_constraintEnd_toEndOf="@+id/labelCard"
+        app:layout_constraintStart_toStartOf="@+id/labelCard"
+        app:layout_constraintTop_toBottomOf="@+id/card" />
+
+    <EditText
+        android:id="@+id/id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/labelId"
+        app:layout_constraintEnd_toEndOf="@+id/card"
+        app:layout_constraintStart_toStartOf="@+id/card"
+        app:layout_constraintTop_toTopOf="@+id/labelId" />
+
+    <Button
+        android:id="@+id/buttonRequestAuthorization"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
+        android:text="@string/text_request_authorization"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
